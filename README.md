@@ -19,7 +19,7 @@ npm start
 
 ## Architecture
 
-React, Axios, more to come...
+React, Axios, React-Bootstrap, more to come...
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
