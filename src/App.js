@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './App.css'
 import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
 
 class App extends React.Component {
@@ -27,9 +28,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h1>City Explorer</h1>
         <Form onSubmit={this.getLocationInfo}>
           <Form.Group>
             <Form.Control onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="City"/>
+            <Form.Text className="text-muted">Enter a city name to learn a bit more about it.</Form.Text>
           </Form.Group>
           <Button variant="primary" type="submit">Explore!</Button>
         </Form>

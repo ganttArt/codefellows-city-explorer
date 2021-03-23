@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+form {
+  padding-bottom: 20px;
+}
+
+input {
+  max-width: 300px;
+}
