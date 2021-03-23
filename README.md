@@ -34,6 +34,18 @@ Start time: 1:06pm
 Finish time: 1:39pm
 Actual time needed to complete: 33min
 
+Name of feature: LocationIQ API request setup
+Estimate of time needed to complete: 1hr
+Start time: 2pm
+Finish time: 2:33pm
+Actual time needed to complete: 33min
+
+Name of feature: Map
+Estimate of time needed to complete: 15min
+Start time: 2:33pm
+Finish time: 
+Actual time needed to complete: 
+
 ## Credit and Collaborations
 
 [Mason Aviles](https://www.linkedin.com/in/masonaviles/) - API Request/Response Graphic

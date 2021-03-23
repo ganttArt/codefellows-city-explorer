@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Image } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = {
       searchQuery: '',
       location: {},
+      imgSrc:'',
       displayResults: false
     }
   }
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.setState({
       location: location.data[0],
       displayResults: true,
+      imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${location.data[0].lat},${location.data[0].lon}&zoom=13`
     });
   }
 
@@ -33,6 +35,7 @@ class App extends React.Component {
           <Jumbotron>
             <h1>{this.state.location.display_name}</h1>
             <p>Latitude: {this.state.location.lat}, Longitute: {this.state.location.lon}</p>
+            <Image src={this.state.imgSrc} roundedCircle />
           </Jumbotron>
         }
       </div>
