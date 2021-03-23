@@ -53,8 +53,8 @@ Name of feature: Error handling
 
 - Estimate of time needed to complete: 45min
 - Start time: 4pm
-- End time: 4:35pm
-- Actual time needed to complete: 35min
+- End time: 4:54pm
+- Actual time needed to complete: 54min
 
 ## Credit and Collaborations
 
