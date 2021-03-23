@@ -13,7 +13,7 @@ class App extends React.Component {
       imgSrc: '',
       displayResults: false,
       displayErrorModal: false,
-
+      errorMessage: '',
     }
   }
 
@@ -28,8 +28,8 @@ class App extends React.Component {
           imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${location.data[0].lat},${location.data[0].lon}&zoom=13`
         }))
       .catch(err => {
-        console.log('someerror', err);
-        this.setState({ displayErrorModal: true })
+        console.log(err.message);
+        this.setState({ displayErrorModal: true, errorMessage: err.message })
       });
   }
 
@@ -53,7 +53,7 @@ class App extends React.Component {
             <Image src={this.state.imgSrc} roundedCircle />
           </Jumbotron>
         }
-        <ErrorModal hide={this.hideErrorModal} show={this.state.displayErrorModal}/>
+        <ErrorModal hide={this.hideErrorModal} show={this.state.displayErrorModal} error={this.state.errorMessage}/>
       </div>
     )
   }

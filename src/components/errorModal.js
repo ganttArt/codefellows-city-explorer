@@ -11,6 +11,7 @@ class ErrorModal extends React.Component {
 
         <Modal.Body>
           <p>Please try again... for some reason the city you searched for was not found.</p>
+          <p>{this.props.error}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.props.hide}>Close</Button>
