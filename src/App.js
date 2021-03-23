@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css'
 import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
+import ErrorModal from './components/errorModal';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,20 +11,29 @@ class App extends React.Component {
       searchQuery: '',
       location: {},
       imgSrc: '',
-      displayResults: false
+      displayResults: false,
+      displayErrorModal: false,
+
     }
   }
 
   getLocationInfo = async (e) => {
     e.preventDefault();
     const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.searchQuery}&format=json`;
-    const location = await axios.get(url);
-    this.setState({
-      location: location.data[0],
-      displayResults: true,
-      imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${location.data[0].lat},${location.data[0].lon}&zoom=13`
-    });
+    await axios.get(url)
+      .then(location =>
+        this.setState({
+          location: location.data[0],
+          displayResults: true,
+          imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${location.data[0].lat},${location.data[0].lon}&zoom=13`
+        }))
+      .catch(err => {
+        console.log('someerror', err);
+        this.setState({ displayErrorModal: true })
+      });
   }
+
+  hideErrorModal = () => {this.setState({ displayErrorModal: false })}
 
   render() {
     return (
@@ -43,6 +53,7 @@ class App extends React.Component {
             <Image src={this.state.imgSrc} roundedCircle />
           </Jumbotron>
         }
+        <ErrorModal hide={this.hideErrorModal} show={this.state.displayErrorModal}/>
       </div>
     )
   }

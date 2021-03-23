@@ -29,22 +29,32 @@ React, Axios, React-Bootstrap, more to come...
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 Name of feature: Repository and API key setup
-Estimate of time needed to complete: 30min
-Start time: 1:06pm
-Finish time: 1:39pm
-Actual time needed to complete: 33min
+
+- Estimate of time needed to complete: 30min
+- Start time: 1:06pm
+- Finish time: 1:39pm
+- Actual time needed to complete: 33min
 
 Name of feature: LocationIQ API request setup
-Estimate of time needed to complete: 1hr
-Start time: 2pm
-Finish time: 2:33pm
-Actual time needed to complete: 33min
+
+- Estimate of time needed to complete: 1hr
+- Start time: 2pm
+- Finish time: 2:33pm
+- Actual time needed to complete: 33min
 
 Name of feature: Map
-Estimate of time needed to complete: 15min
-Start time: 2:33pm
-Finish time: 
-Actual time needed to complete: 
+
+- Estimate of time needed to complete: 15min
+- Start time: 2:33pm
+- Finish time: 2:53pm
+- Actual time needed to complete: 20min
+
+Name of feature: Error handling
+
+- Estimate of time needed to complete: 45min
+- Start time: 4pm
+- End time: 4:35pm
+- Actual time needed to complete: 35min
 
 ## Credit and Collaborations
 
