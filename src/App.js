@@ -14,7 +14,7 @@ class App extends React.Component {
 
   getLocationInfo = async (e) => {
     e.preventDefault();
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.location}&format=json`;
+    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.searchQuery}&format=json`;
     const location = await axios.get(url);
     this.setState({
       location: location.data[0],
@@ -29,17 +29,11 @@ class App extends React.Component {
           <input onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="City" />
           <button type="submit">Explore!</button>
         </form>
-        <Jumbotron>
-          <h1>Hello, world!</h1>
-          <p>
-            This is a simple hero unit, a simple jumbotron-style component for calling
-            extra attention to featured content or information.
-          </p>
-        </Jumbotron>
         {this.state.displayResults &&
-          <>
-            <h2>{this.state.location.display_name}</h2>
-          </>
+          <Jumbotron>
+            <h1>{this.state.location.display_name}</h1>
+            <p>Latitude: {this.state.location.lat}, Longitute: {this.state.location.lon}</p>
+          </Jumbotron>
         }
       </div>
     )
