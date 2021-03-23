@@ -1,4 +1,4 @@
-# Project Name
+# City Explorer
 
 **Author**: Chris Gantt
 **Version**: 1.0.0
