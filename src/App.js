@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Jumbotron, Image } from 'react-bootstrap';
+import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = {
       searchQuery: '',
       location: {},
-      imgSrc:'',
+      imgSrc: '',
       displayResults: false
     }
   }
@@ -27,10 +27,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <form onSubmit={this.getLocationInfo} >
-          <input onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="City" />
-          <button type="submit">Explore!</button>
-        </form>
+        <Form onSubmit={this.getLocationInfo}>
+          <Form.Group>
+            <Form.Control onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="City"/>
+          </Form.Group>
+          <Button variant="primary" type="submit">Explore!</Button>
+        </Form>
         {this.state.displayResults &&
           <Jumbotron>
             <h1>{this.state.location.display_name}</h1>
