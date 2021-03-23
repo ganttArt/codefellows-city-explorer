@@ -23,9 +23,38 @@ React, Axios, React-Bootstrap, more to come...
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
+
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+Name of feature: Repository and API key setup
+
+- Estimate of time needed to complete: 30min
+- Start time: 1:06pm
+- Finish time: 1:39pm
+- Actual time needed to complete: 33min
+
+Name of feature: LocationIQ API request setup
+
+- Estimate of time needed to complete: 1hr
+- Start time: 2pm
+- Finish time: 2:33pm
+- Actual time needed to complete: 33min
+
+Name of feature: Map
+
+- Estimate of time needed to complete: 15min
+- Start time: 2:33pm
+- Finish time: 2:53pm
+- Actual time needed to complete: 20min
+
+Name of feature: Error handling
+
+- Estimate of time needed to complete: 45min
+- Start time: 4pm
+- End time: 4:54pm
+- Actual time needed to complete: 54min
 
 ## Credit and Collaborations
 
