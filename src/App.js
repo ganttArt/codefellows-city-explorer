@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css'
 import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
 import ErrorModal from './components/errorModal';
+import Weather from './components/weather';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,13 +48,17 @@ class App extends React.Component {
           <Button variant="primary" type="submit">Explore!</Button>
         </Form>
         {this.state.displayResults &&
-          <Jumbotron>
-            <h1>{this.state.location.display_name}</h1>
-            <p>Latitude: {this.state.location.lat}, Longitute: {this.state.location.lon}</p>
-            <Image src={this.state.imgSrc} roundedCircle />
-          </Jumbotron>
+          <>
+            <Jumbotron>
+              <h1>{this.state.location.display_name}</h1>
+              <p>Latitude: {this.state.location.lat}, Longitute: {this.state.location.lon}</p>
+              <Image src={this.state.imgSrc} roundedCircle />
+            </Jumbotron>
+            <Weather/>
+          </>
         }
         <ErrorModal hide={this.hideErrorModal} show={this.state.displayErrorModal} error={this.state.errorMessage}/>
+        
       </div>
     )
   }
