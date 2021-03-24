@@ -13,6 +13,7 @@ Explore the city with this fun React App
 ```bash
 git clone https://github.com/ganttArt/codefellows-city-explorer.git
 npm -i
+'Create a .env file in your root directory. Add your locationiq api key in .env file as REACT_APP_LOCATION_KEY'
 npm start
 ```
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
