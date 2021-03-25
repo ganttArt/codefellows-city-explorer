@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accordion, Card, Button, ListGroup } from 'react-bootstrap';
+import WeatherDay from './weatherDay';
 
 class Weather extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Weather extends React.Component {
             <Card.Body>
               <ListGroup>
                 {this.props.forecast.map(dayForecast => (
-                  <ListGroup.Item>{dayForecast.date} {dayForecast.description}</ListGroup.Item>
+                  <WeatherDay dayForecast={dayForecast} />
                 ))}
               </ListGroup>
             </Card.Body>

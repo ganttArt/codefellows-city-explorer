@@ -57,6 +57,13 @@ Name of feature: Error handling
 - End time: 4:54pm
 - Actual time needed to complete: 54min
 
+Name of feature: Refactor Components
+
+- Estimate of time needed to complete: 1hr
+- Start time: 1pm
+- End time: 2:13pm
+- Actual time needed to complete: 1hr 13min
+
 ## Credit and Collaborations
 
 [Mason Aviles](https://www.linkedin.com/in/masonaviles/) - API Request/Response Graphic

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accordion, Card, Button, ListGroup } from 'react-bootstrap';
+import Movie from './movie';
 
 class Movies extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Movies extends React.Component {
             <Card.Body>
               <ListGroup>
                 {this.props.movies.map(movie => (
-                  <ListGroup.Item>{movie.title}: {movie.description}</ListGroup.Item>
+                  <Movie movie={movie} />
                 ))}
               </ListGroup>
             </Card.Body>
