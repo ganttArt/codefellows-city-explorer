@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css'
-import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import ErrorModal from './components/errorModal';
 import Weather from './components/weather';
 import Movies from './components/movies';
+import Location from './components/location';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
   }
 
   getWeatherFromBackend = (latitude, longitude) => {
-    const SERVER = 'http://localhost:3001';
+    const SERVER = process.env.REACT_APP_BACKEND_SERVER;
     axios.get(`${SERVER}/weather?lat=${latitude}&lon=${longitude}`)
       .then(forecast => {
         this.setState({ forecast: forecast.data, displayForecast: true });
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
 
   getMoviesFromBackend = (location) => {
-    const SERVER = 'http://localhost:3001';
+    const SERVER = process.env.REACT_APP_BACKEND_SERVER;
     axios.get(`${SERVER}/movies?location=${location}`)
       .then(movies => {
         this.setState({ movies: movies.data, displayMovies: true });
@@ -82,17 +83,8 @@ class App extends React.Component {
         </Form>
         {this.state.displayForecast && <Weather forecast={this.state.forecast} />}
         {this.state.displayMovies && <Movies movies={this.state.movies} />}
-        {this.state.displayResults &&
-          <>
-            <Jumbotron>
-              <h1>{this.state.location.display_name}</h1>
-              <p>Latitude: {this.state.location.lat}, Longitute: {this.state.location.lon}</p>
-              <Image src={this.state.imgSrc} roundedCircle />
-            </Jumbotron>
-          </>
-        }
+        {this.state.displayResults && <Location location={this.state.location} imgSrc={this.state.imgSrc} />}
         <ErrorModal hide={this.hideErrorModal} show={this.state.displayErrorModal} error={this.state.errorMessage} />
-
       </div>
     )
   }
