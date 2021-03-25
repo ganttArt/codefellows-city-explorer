@@ -4,6 +4,7 @@ import './App.css'
 import { Jumbotron, Image, Form, Button } from 'react-bootstrap';
 import ErrorModal from './components/errorModal';
 import Weather from './components/weather';
+import Movies from './components/movies';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,8 +16,10 @@ class App extends React.Component {
       displayResults: false,
       displayErrorModal: false,
       displayForecast: false,
+      displayMovies: false,
       errorMessage: '',
-      forecast: []
+      forecast: [],
+      movies: [],
     }
   }
 
@@ -25,6 +28,18 @@ class App extends React.Component {
     axios.get(`${SERVER}/weather?lat=${latitude}&lon=${longitude}`)
       .then(forecast => {
         this.setState({ forecast: forecast.data, displayForecast: true });
+      })
+      .catch(err => {
+        console.log(err.message);
+        this.setState({ displayErrorModal: true, errorMessage: err.message })
+      })
+  }
+
+  getMoviesFromBackend = (location) => {
+    const SERVER = 'http://localhost:3001';
+    axios.get(`${SERVER}/movies?location=${location}`)
+      .then(movies => {
+        this.setState({ movies: movies.data, displayMovies: true });
       })
       .catch(err => {
         console.log(err.message);
@@ -43,6 +58,8 @@ class App extends React.Component {
           imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${location.data[0].lat},${location.data[0].lon}&zoom=13`
         });
         this.getWeatherFromBackend(location.data[0].lat, location.data[0].lon);
+        this.getMoviesFromBackend(this.state.searchQuery);
+        console.log('get location info function');
       })
       .catch(err => {
         console.log(err.message);
@@ -64,6 +81,7 @@ class App extends React.Component {
           <Button variant="primary" type="submit">Explore!</Button>
         </Form>
         {this.state.displayForecast && <Weather forecast={this.state.forecast} />}
+        {this.state.displayMovies && <Movies movies={this.state.movies} />}
         {this.state.displayResults &&
           <>
             <Jumbotron>
