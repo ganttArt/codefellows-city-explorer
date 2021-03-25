@@ -10,7 +10,6 @@ class ErrorModal extends React.Component {
         </Modal.Header>
 
         <Modal.Body>
-          <p>Please try again... for some reason the city you searched for was not found.</p>
           <p>{this.props.error}</p>
         </Modal.Body>
         <Modal.Footer>
