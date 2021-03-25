@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css'
-import { Form, Button } from 'react-bootstrap';
 import ErrorModal from './components/errorModal';
 import Weather from './components/weather';
 import Movies from './components/movies';
 import Location from './components/location';
+import CityForm from './components/cityForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -68,19 +68,14 @@ class App extends React.Component {
       });
   }
 
-  hideErrorModal = () => { this.setState({ displayErrorModal: false }) }
+  hideErrorModal = () => { this.setState({ displayErrorModal: false })}
+  updateSearchQuery = (query) => { this.setState({ searchQuery: query})}
 
   render() {
     return (
       <div className="App">
         <h1>City Explorer</h1>
-        <Form onSubmit={this.getLocationInfo}>
-          <Form.Group>
-            <Form.Control onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="City" />
-            <Form.Text className="text-muted">Enter a city name to learn a bit more about it.</Form.Text>
-          </Form.Group>
-          <Button variant="primary" type="submit">Explore!</Button>
-        </Form>
+        <CityForm getLocationInfo={this.getLocationInfo} updateSearchQuery={this.updateSearchQuery} />
         {this.state.displayForecast && <Weather forecast={this.state.forecast} />}
         {this.state.displayMovies && <Movies movies={this.state.movies} />}
         {this.state.displayResults && <Location location={this.state.location} imgSrc={this.state.imgSrc} />}
